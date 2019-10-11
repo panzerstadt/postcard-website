@@ -30,8 +30,8 @@ fields:
     name: email
     label: email
   - type: text
-    name: twitter_handle
-    label: twitter_handle
+    name: instagram_handle
+    label: instagram_handle
   - type: text
     name: github_handle
     label: github_handle
