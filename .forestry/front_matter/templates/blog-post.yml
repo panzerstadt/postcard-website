@@ -36,6 +36,7 @@ fields:
   description: Enter hero image for blog post here
   default: "/content/images/sarah-dorweiler-9Z1KRIfpBTM-unsplash.jpg"
 pages:
+- content/posts/pomegranate-3.md
 - content/posts/pomegranate-2.md
 - content/posts/pomegranate-1.md
 - content/posts/plum.md
