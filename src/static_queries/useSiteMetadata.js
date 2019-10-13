@@ -12,7 +12,7 @@ export default function useSiteMetadata() {
             contact {
               email
               github_handle
-              twitter_handle
+              instagram_handle
             }
             cta
             description

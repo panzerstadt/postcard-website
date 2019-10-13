@@ -7,10 +7,11 @@
   "author": "kendall strautman",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop -o",
+    "dev": "git pull origin master && gatsby develop -o",
     "develop": "yarn dev",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn dev",
+    "save": "git add . && git commit -m 'code update' && git push origin master",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "forestry-preview": "gatsby develop -p 8080 -H 0.0.0.0"

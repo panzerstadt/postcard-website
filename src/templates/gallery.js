@@ -74,7 +74,6 @@ export const getPostData = graphql`
       frontmatter {
         title
         author
-
         hero_image {
           childImageSharp {
             fluid(maxWidth: 1500) {

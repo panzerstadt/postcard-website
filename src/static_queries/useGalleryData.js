@@ -1,9 +1,9 @@
 import { graphql, useStaticQuery } from "gatsby"
 
-export default function useBlogData() {
+export default function useGalleryData() {
   const data = useStaticQuery(graphql`
-    query getBlogData {
-      allMarkdownRemark {
+    query getGalleryDataFromBlog {
+      allMarkdownRemark(sort: { order: DESC, fields: frontmatter___title }) {
         edges {
           node {
             id
@@ -13,7 +13,7 @@ export default function useBlogData() {
               hero_image {
                 childImageSharp {
                   fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
+                    base64
                   }
                 }
               }
