@@ -1,13 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout"
-import BlogList from "../components/BlogList"
+import GalleryList from "../components/GalleryList"
+import Enlarged from "../components/Enlarged"
 
 export default function IndexPage() {
+  const [img, setImg] = useState({})
   return (
     <Layout page="home" bgColor="inherit">
-      <section>
-        <BlogList />
-      </section>
+      <Enlarged fluid={img} />
+      <GalleryList onFocusImg={setImg} />
     </Layout>
   )
 }
