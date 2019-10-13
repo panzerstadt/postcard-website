@@ -1,7 +1,7 @@
 ---
 date: 
-title: " Mile-a-minute"
+title: Strawberry
 author: yyyy.sketch
-hero_image: "/content/images/postcard_20191006-3.jpg"
+hero_image: "/content/images/postcard_20190922-4.jpg"
 
 ---
