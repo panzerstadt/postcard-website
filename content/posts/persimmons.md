@@ -1,7 +1,7 @@
 ---
 date: 
-title: Persimmons
+title: Plum
 author: yyyy.sketch
-hero_image: "/content/images/POSTCARD_20191010-1.png"
+hero_image: "/content/images/postcard_20191006-6.jpg"
 
 ---
