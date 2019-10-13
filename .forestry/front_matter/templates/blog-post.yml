@@ -36,10 +36,10 @@ fields:
   description: Enter hero image for blog post here
   default: "/content/images/sarah-dorweiler-9Z1KRIfpBTM-unsplash.jpg"
 pages:
+- content/posts/mandarin-orange.md
 - content/posts/blue-raspberry.md
 - content/posts/blueberry.md
 - content/posts/cherry-tomato.md
-- content/posts/mandarin-orange.md
 - content/posts/banana-1.md
 - content/posts/loquat.md
 - content/posts/lime.md
