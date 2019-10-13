@@ -36,7 +36,11 @@ fields:
   description: Enter hero image for blog post here
   default: "/content/images/sarah-dorweiler-9Z1KRIfpBTM-unsplash.jpg"
 pages:
+- content/posts/blue-raspberry.md
+- content/posts/blueberry.md
+- content/posts/cherry-tomato.md
 - content/posts/mandarin-orange.md
+- content/posts/banana-1.md
 - content/posts/loquat.md
 - content/posts/lime.md
 - content/posts/lemon.md
@@ -45,11 +49,7 @@ pages:
 - content/posts/green-grape.md
 - content/posts/fig.md
 - content/posts/mile-a-minute.md
-- content/posts/cherry-tomato.md
 - content/posts/cherries.md
-- content/posts/blueberry.md
-- content/posts/blue-raspberry.md
-- content/posts/banana-1.md
 - content/posts/banana.md
 - content/posts/apricot.md
 - content/posts/apple.md
