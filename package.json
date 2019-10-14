@@ -33,7 +33,9 @@
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-image-magnify": "^2.7.4",
+    "react-masonry-css": "^1.0.13"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

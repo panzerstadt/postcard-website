@@ -1,51 +1,72 @@
-import React from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Link } from "gatsby"
+import Masonry from "react-masonry-css"
 import useGalleryData from "../../static_queries/useGalleryData"
 import galleryListStyles from "../../styles/components/gallerylist.module.scss"
-import Img from "gatsby-image"
+import GalleryImg from "../GalleryImg"
+import useDims from "../../hooks/useDims"
 
 const GalleryItem = ({ data, onFocusImg }) => {
+  const imgRef = useRef()
+
   const handleFocusImg = () => {
     onFocusImg &&
       onFocusImg(data.node.frontmatter.hero_image.childImageSharp.fluid)
+
+    console.log(data.node.frontmatter.hero_image.childImageSharp.fluid)
   }
   const handleExitFocus = () => {
     onFocusImg && onFocusImg({})
   }
+
+  const { aspectRatio } = data.node.frontmatter.hero_image.childImageSharp.fluid
+
   return (
     <motion.div
       className={galleryListStyles.galleryItem}
+      style={{ height: 200 / aspectRatio, width: 200 }}
       key={data.node.fields.slug}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       onHoverStart={() => handleFocusImg()}
+      onTap={() => handleFocusImg()}
+
       // onHoverEnd={() => handleExitFocus()}
-      whileHover={{ opacity: 0.3 }}
+      // whileHover={handleHover}
     >
-      <Img
+      <GalleryImg
         fluid={data.node.frontmatter.hero_image.childImageSharp.fluid}
-        alt={data.node.frontmatter.title}
+        text={data.node.frontmatter.title}
       />
-      {/* <div className={galleryListStyles.list__info}>
-        <h2>{data.node.frontmatter.title}</h2>
-      </div> */}
     </motion.div>
   )
 }
 
 export default function GalleryList({ onFocusImg }) {
+  const { height, width } = useDims()
   const blogData = useGalleryData()
   function renderBlogData() {
     return blogData
       .filter(blog => blog.node.frontmatter.title !== "")
       .map(data => {
-        return <GalleryItem data={data} onFocusImg={onFocusImg} />
+        return (
+          <GalleryItem
+            data={data}
+            onFocusImg={onFocusImg}
+            key={data.node.frontmatter.slug}
+          />
+        )
       })
   }
   return (
     <section>
-      <div className={galleryListStyles.container}>{renderBlogData()}</div>
+      <Masonry
+        breakpointCols={width > 600 ? 4 : 2}
+        className={galleryListStyles.masonryContainer}
+        columnClassName={galleryListStyles.masonryColumnContainer}
+      >
+        {renderBlogData()}
+      </Masonry>
     </section>
   )
 }

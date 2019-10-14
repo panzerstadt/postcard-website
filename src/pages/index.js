@@ -7,7 +7,7 @@ export default function IndexPage() {
   const [img, setImg] = useState({})
   return (
     <Layout page="home" bgColor="inherit">
-      <Enlarged fluid={img} />
+      {/* <Enlarged fluid={img} /> */}
       <GalleryList onFocusImg={setImg} />
     </Layout>
   )
