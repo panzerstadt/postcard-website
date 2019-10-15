@@ -3,7 +3,7 @@ import ReactMagnify from "react-image-magnify"
 
 import styles from "./index.module.css"
 
-const GalleryImg = ({ fluid }) => {
+const GalleryImg = ({ fluid, portalId }) => {
   const { aspectRatio, base64, sizes, src, srcSet } = fluid
   const imgs = {
     smallImage: {
@@ -16,7 +16,7 @@ const GalleryImg = ({ fluid }) => {
     largeImage: {
       src: src,
       srcSet: srcSet,
-      width: Math.floor(1000 / aspectRatio),
+      width: Math.floor(1000 * aspectRatio),
       height: 1000,
     },
   }
@@ -24,8 +24,19 @@ const GalleryImg = ({ fluid }) => {
   return (
     <ReactMagnify
       {...imgs}
-      enlargedImagePosition="beside"
-      enlargedImageContainerClassName={styles.largeContainer}
+      className={styles.imgContainer}
+      imageClassName={styles.img}
+      enlargedImagePortalId={"enlarged-portal" || portalId || undefined}
+      // enlargedImagePosition="beside"
+      // enlargedImageContainerClassName={styles.largeContainer}
+      enlargedImageStyle={{
+        position: "absolute",
+        left: 0,
+        top: "40%",
+        height: "100%",
+        // width: "calc(100% / 0.3)",
+        objectFit: "contain",
+      }}
       isHintEnabled={false}
       fadeDurationInMs={400}
       hoverDelayInMs={30}

@@ -1,26 +1,32 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState, useRef } from "react";
 
-const useDims = () => {
-  const [dims, setDims] = useState({})
-  const handleResize = () => {
-    requestAnimationFrame(() => {
-      setDims({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    })
-  }
+const useDims = (initialData, debounced = true) => {
+  const resizeRef = useRef();
+  const [height, setHeight] = useState(initialData && initialData.height || 0);
+  const [width, setWidth] = useState(initialData && initialData.width || 0);
   useEffect(() => {
-    window.addEventListener("resize", handleResize)
-    setDims({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    })
+    window.addEventListener("resize", handleResize, false);
+    handleResize();
 
-    return () => window.removeEventListener("resize", handleResize)
-  })
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  return dims
-}
+  const handleResize = () => {
+    if (debounced) {
+      clearTimeout(resizeRef && resizeRef.current);
+      resizeRef.current = setTimeout(() => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+      }, 250);
+    } else {
+      requestAnimationFrame(() => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+      });
+    }
+  };
 
-export default useDims
+  return { height: height, width: width };
+};
+
+export default useDims;

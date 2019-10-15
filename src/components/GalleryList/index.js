@@ -6,7 +6,7 @@ import galleryListStyles from "../../styles/components/gallerylist.module.scss"
 import GalleryImg from "../GalleryImg"
 import useDims from "../../hooks/useDims"
 
-const GalleryItem = ({ data, onFocusImg }) => {
+const GalleryItem = ({ data, onFocusImg, portalId }) => {
   const imgRef = useRef()
 
   const handleFocusImg = () => {
@@ -37,6 +37,7 @@ const GalleryItem = ({ data, onFocusImg }) => {
       <GalleryImg
         fluid={data.node.frontmatter.hero_image.childImageSharp.fluid}
         text={data.node.frontmatter.title}
+        portalId={portalId}
       />
     </motion.div>
   )
