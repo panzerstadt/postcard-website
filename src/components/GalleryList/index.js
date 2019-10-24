@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Link } from "gatsby"
+import Masonry from "react-masonry-css"
 import useGalleryData from "../../static_queries/useGalleryData"
 import galleryListStyles from "../../styles/components/gallerylist.module.scss"
+import useDims from "../../hooks/useDims.js"
 import Img from "gatsby-image"
 
 const GalleryItem = ({ data, onFocusImg }) => {
@@ -20,7 +21,7 @@ const GalleryItem = ({ data, onFocusImg }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       onHoverStart={() => handleFocusImg()}
-      // onHoverEnd={() => handleExitFocus()}
+      onHoverEnd={() => handleExitFocus()}
       whileHover={{ opacity: 0.3 }}
     >
       <Img
@@ -35,6 +36,7 @@ const GalleryItem = ({ data, onFocusImg }) => {
 }
 
 export default function GalleryList({ onFocusImg }) {
+  const { height, width } = useDims({ width: 700 })
   const blogData = useGalleryData()
   function renderBlogData() {
     return blogData
@@ -45,6 +47,13 @@ export default function GalleryList({ onFocusImg }) {
   }
   return (
     <section>
+      <Masonry
+        breakpointCols={width > 600 ? 4 : 2}
+        className={galleryListStyles.masonryContainer}
+        columnClassName={galleryListStyles.masonryColumnContainer}
+      >
+        {renderBlogData()}
+      </Masonry>
       <div className={galleryListStyles.container}>{renderBlogData()}</div>
     </section>
   )
