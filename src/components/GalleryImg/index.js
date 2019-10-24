@@ -27,14 +27,14 @@ const GalleryImg = ({ fluid, portalId }) => {
       className={styles.imgContainer}
       imageClassName={styles.img}
       enlargedImagePortalId={"enlarged-portal" || portalId || undefined}
-      // enlargedImagePosition="beside"
+      enlargedImagePosition="over"
+      enlargedImageContainerDimensions={{ width: "150%", height: "150%" }} // affects
       // enlargedImageContainerClassName={styles.largeContainer}
       enlargedImageStyle={{
         position: "absolute",
-        left: 0,
-        top: "40%",
+        // top: "40%",
         height: "100%",
-        // width: "calc(100% / 0.3)",
+        width: "100%",
         objectFit: "contain",
       }}
       isHintEnabled={false}

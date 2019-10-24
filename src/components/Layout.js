@@ -11,6 +11,7 @@ export default function Layout(props) {
     <motion.section
       className={`${layoutStyles.layout} ${props.page === "info" &&
         layoutStyles.info_page}`}
+      initial={{ backgroundColor: "white" }}
       animate={{ backgroundColor: props.bgColor ? props.bgColor : "white" }}
     >
       <Helmet>

@@ -7,13 +7,9 @@ import GalleryImg from "../GalleryImg"
 import useDims from "../../hooks/useDims"
 
 const GalleryItem = ({ data, onFocusImg, portalId }) => {
-  const imgRef = useRef()
-
   const handleFocusImg = () => {
     onFocusImg &&
       onFocusImg(data.node.frontmatter.hero_image.childImageSharp.fluid)
-
-    console.log(data.node.frontmatter.hero_image.childImageSharp.fluid)
   }
   const handleExitFocus = () => {
     onFocusImg && onFocusImg({})
@@ -44,7 +40,7 @@ const GalleryItem = ({ data, onFocusImg, portalId }) => {
 }
 
 export default function GalleryList({ onFocusImg }) {
-  const { height, width } = useDims()
+  const { height, width } = useDims({ width: 800 }, true)
   const blogData = useGalleryData()
   function renderBlogData() {
     return blogData

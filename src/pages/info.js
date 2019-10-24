@@ -7,11 +7,15 @@ import useSiteMetaData from "../static_queries/useSiteMetadata"
 export default function Info() {
   const { infoData } = useSiteMetaData()
   return (
-    <Layout page="info" bgColor={infoData.background_color}>
+    <Layout
+      page="info"
+      bgColor={"rgb(224, 251, 252)"}
+      // bgColor={infoData.background_color}
+    >
       <motion.section
         className={infoStyles.info_blurb}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: 1, transition: { delay: 0.5 } }}
       >
         <h2>
           <div dangerouslySetInnerHTML={{ __html: infoData.description }}></div>

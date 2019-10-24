@@ -2,10 +2,11 @@
   max-width: 800px;
   padding: 1.5rem 1.25rem;
   p {
-    color: #EBEBEB;
+    color: var(--text-color);
     font-size: 1.4rem;
   }
   h2 div p {
+    color: var(--text-color);
     margin-bottom: 1rem;
   }
 }
@@ -16,7 +17,7 @@
   }
 }
 
-@media(min-width: 1440px) {
+@media (min-width: 1440px) {
   .info_blurb {
     padding: 3rem;
   }
