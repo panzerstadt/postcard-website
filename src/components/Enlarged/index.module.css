@@ -1,11 +1,9 @@
 .container {
   position: fixed;
   top: 0;
-  left: -30%;
+  left: 0;
 
   height: 100%;
-  width: 60%;
+  width: 30%;
   overflow: hidden;
-
-  transform: scale(-1);
 }

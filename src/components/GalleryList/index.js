@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 import Masonry from "react-masonry-css"
 import useGalleryData from "../../static_queries/useGalleryData"
 import galleryListStyles from "../../styles/components/gallerylist.module.scss"
-import useDims from "../../hooks/useDims.js"
 import Img from "gatsby-image"
 import { remap } from "../../libs"
 

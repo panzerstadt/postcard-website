@@ -5,10 +5,6 @@ import Img from "gatsby-image"
 import styles from "./index.module.css"
 
 const Enlarged = ({ fluid, relativePos, scale = 1 }) => {
-  useEffect(() => {
-    console.log("relativepos", relativePos)
-  }, [relativePos])
-
   return (
     <div className={styles.container}>
       <div
@@ -16,7 +12,6 @@ const Enlarged = ({ fluid, relativePos, scale = 1 }) => {
           position: "relative",
           top: `calc(${relativePos.y * scale * -100}% + 50%)`,
           left: `calc(${relativePos.x * scale * -100}% + 50%)`,
-          // height: `${scale * 100}%`,
           width: `${scale * 100}%`,
         }}
       >
