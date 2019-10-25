@@ -4,6 +4,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   .galleryItem {
+    position: relative;
     overflow: hidden;
     background-color: #000;
     img {
