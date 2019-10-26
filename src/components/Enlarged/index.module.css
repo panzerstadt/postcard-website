@@ -7,3 +7,9 @@
   width: 30%;
   overflow: hidden;
 }
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}
