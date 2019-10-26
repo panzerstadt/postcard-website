@@ -9,7 +9,11 @@ export default function Layout(props) {
   const { title, description } = useSiteMetadata()
   useEffect(() => {
     // disable right click
-    document.oncontextmenu = () => false
+    document.oncontextmenu = e => {
+      e.preventDefault()
+      e.stopPropagation()
+      return false
+    }
   }, [])
   return (
     <motion.section
