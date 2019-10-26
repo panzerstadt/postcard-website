@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 import Header from "./Header"
 import Helmet from "react-helmet"
@@ -7,6 +7,10 @@ import layoutStyles from "../styles/components/layout.module.scss"
 
 export default function Layout(props) {
   const { title, description } = useSiteMetadata()
+  useEffect(() => {
+    // disable right click
+    document.oncontextmenu = () => false
+  }, [])
   return (
     <motion.section
       className={`${layoutStyles.layout} ${props.page === "info" &&

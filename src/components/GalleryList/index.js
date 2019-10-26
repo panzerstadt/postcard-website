@@ -4,6 +4,7 @@ import Masonry from "react-masonry-css"
 import useGalleryData from "../../static_queries/useGalleryData"
 import galleryListStyles from "../../styles/components/gallerylist.module.scss"
 import Img from "gatsby-image"
+import useDims from "../../hooks/useDims"
 import { remap } from "../../libs"
 
 const Indicator = ({ top, left, isVisible, idleSecs = 1 }) => {
@@ -50,6 +51,7 @@ const Indicator = ({ top, left, isVisible, idleSecs = 1 }) => {
 
 const GalleryItem = ({ data, onFocusImg, onMouseMove }) => {
   const imgRef = useRef()
+  const { width } = useDims({ width: 600 })
   const [isFocused, setIsFocused] = useState(false)
   useEffect(() => {
     imgRef.current &&
@@ -105,19 +107,23 @@ const GalleryItem = ({ data, onFocusImg, onMouseMove }) => {
       key={data.node.fields.slug}
       initial={{ opacity: 0, outlineColor: "white" }}
       animate={{ opacity: 1 }}
-      onHoverStart={() => handleFocusImg()}
-      onHoverEnd={() => handleExitFocus()}
-      whileHover={{
-        scale: 0.85,
-        outlineColor: "#cccccc33",
-        outlineWidth: 3,
-        outlineStyle: "solid",
-        transition: {
-          ease: "easeOut",
-          duration: 0.3,
-        },
-        cursor: "none",
-      }}
+      onHoverStart={() => width >= 600 && handleFocusImg()}
+      onHoverEnd={() => width >= 600 && handleExitFocus()}
+      whileHover={
+        width >= 600
+          ? {
+              scale: 0.85,
+              outlineColor: "#cccccc33",
+              outlineWidth: 3,
+              outlineStyle: "solid",
+              transition: {
+                ease: "easeOut",
+                duration: 0.3,
+              },
+              cursor: "none",
+            }
+          : {}
+      }
       ref={imgRef}
     >
       <Indicator top={pos.y} left={pos.x} isVisible={isFocused} />
