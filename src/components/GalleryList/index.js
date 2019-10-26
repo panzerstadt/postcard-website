@@ -36,12 +36,12 @@ const Indicator = ({ top, left, isVisible, idleSecs = 1 }) => {
         position: "absolute",
         zIndex: 10000,
         pointerEvents: "none",
-        height: 30,
-        width: 30,
-        marginTop: -15,
-        marginLeft: -15,
+        height: 20,
+        width: 20,
+        marginTop: -10,
+        marginLeft: -10,
         borderRadius: 999,
-        backgroundColor: "red",
+        backgroundColor: "green",
         mixBlendMode: "color-dodge",
       }}
     ></motion.div>
@@ -109,13 +109,14 @@ const GalleryItem = ({ data, onFocusImg, onMouseMove }) => {
       onHoverEnd={() => handleExitFocus()}
       whileHover={{
         scale: 0.85,
-        outlineColor: "#ABE8EA",
-        outlineWidth: 5,
+        outlineColor: "#cccccc33",
+        outlineWidth: 3,
         outlineStyle: "solid",
         transition: {
           ease: "easeOut",
           duration: 0.3,
         },
+        cursor: "none",
       }}
       ref={imgRef}
     >
