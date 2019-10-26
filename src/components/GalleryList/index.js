@@ -51,7 +51,7 @@ const Indicator = ({ top, left, isVisible, idleSecs = 1 }) => {
 
 const GalleryItem = ({ data, onFocusImg, onMouseMove }) => {
   const imgRef = useRef()
-  const { width } = useDims({ width: 600 })
+  const { width } = useDims({ width: 768 })
   const [isFocused, setIsFocused] = useState(false)
   useEffect(() => {
     imgRef.current &&
@@ -107,10 +107,10 @@ const GalleryItem = ({ data, onFocusImg, onMouseMove }) => {
       key={data.node.fields.slug}
       initial={{ opacity: 0, outlineColor: "white" }}
       animate={{ opacity: 1 }}
-      onHoverStart={() => width >= 600 && handleFocusImg()}
-      onHoverEnd={() => width >= 600 && handleExitFocus()}
+      onHoverStart={() => width >= 768 && handleFocusImg()}
+      onHoverEnd={() => width >= 768 && handleExitFocus()}
       whileHover={
-        width >= 600
+        width >= 768
           ? {
               scale: 0.85,
               outlineColor: "#cccccc33",

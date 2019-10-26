@@ -5,6 +5,16 @@
   width: 0;
 }
 
+@media (max-width: 768px) {
+  img {
+    // disable "right click" on mobile
+    pointer-events: none; // for Android
+    -webkit-touch-callout: none; // for iOS
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
 :root {
   --text-color: #293241;
   --bg-color: #e0fbfc;
