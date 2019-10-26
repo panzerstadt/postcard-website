@@ -3,6 +3,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
+  // disable "right click" on mobile
+  pointer-events: none; // for Android
+  -webkit-touch-callout: none; // for iOS
+  user-select: none;
+
   .galleryItem {
     position: relative;
     overflow: hidden;
