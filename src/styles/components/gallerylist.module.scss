@@ -3,11 +3,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
-  // disable "right click" on mobile
-  pointer-events: none; // for Android
-  -webkit-touch-callout: none; // for iOS
-  user-select: none;
-
   .galleryItem {
     position: relative;
     overflow: hidden;
@@ -22,6 +17,20 @@
         opacity: 1;
         -webkit-transition: opacity 0.3s ease;
         transition: opacity 0.3s ease;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    .galleryItem {
+      img {
+        // disable "right click" on mobile
+        pointer-events: none; // for Android
+        -webkit-touch-callout: none; // for iOS
+        user-select: none;
+        pointer-events: none;
       }
     }
   }
